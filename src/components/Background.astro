@@ -1,0 +1,41 @@
+---
+import { shuffle } from 'lodash-es';
+
+const originalImages = [
+//   'images/bg/1.png',
+  'images/bg/2.png',
+//   'images/bg/3.png',
+//   'images/bg/4.png',
+];
+
+const positions = [
+  'top-10 left-10',
+  'top-20 right-20',
+  'bottom-10 left-1/3',
+  'bottom-20 right-1/4',
+  'top-1/2 left-1/2',
+  'top-5 right-1/3',
+  'bottom-5 left-20',
+  'top-1/4 right-10',
+  'bottom-1/3 right-1/2',
+  'top-1/3 left-1/4',
+];
+
+// Perbanyak gambar dengan cara menduplikasi lalu shuffle
+let images = [];
+const repeatCount = 10; // Ubah ini jika ingin lebih banyak duplikasi
+
+for (let i = 0; i < repeatCount; i++) {
+  images = images.concat(shuffle(originalImages));
+}
+images = shuffle(images); // Final shuffle
+---
+<div class="absolute w-full h-screen overflow-hidden">
+  {images.map((img, i) => (
+    <img 
+      src={img} 
+      alt="decoration" 
+      class={`absolute opacity-10 w-40 h-40 object-contain ${positions[i % positions.length]}`} 
+    />
+  ))}
+</div>

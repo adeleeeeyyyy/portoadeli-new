@@ -30,7 +30,7 @@ for (let i = 0; i < repeatCount; i++) {
 }
 images = shuffle(images); // Final shuffle
 ---
-<div class="absolute w-full h-screen overflow-hidden">
+<div class="absolute w-screen h-screen -z-[100] overflow-hidden">
   {images.map((img, i) => (
     <img 
       src={img} 
